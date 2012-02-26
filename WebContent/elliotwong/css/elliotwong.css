@@ -1,6 +1,7 @@
 @CHARSET "ISO-8859-1";
 html, body{
 	text-align: center;
+	font-family:"Arial",Georgia,Serif;
 }
 .content{
 	width: 850px;
@@ -32,8 +33,8 @@ a:visited{
 }
 .title p{
 	color: white;
-	padding-top: 5em;
-	padding-left: 28em;
+	padding-top: 11em;
+	padding-left: 32em;
 	
 	text-shadow: white 0 0 10px;
 }
@@ -70,5 +71,5 @@ a:visited{
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	
-	border: 1px solid black;
+	border: 2px solid black;
 }
