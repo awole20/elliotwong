@@ -1,0 +1,60 @@
+@CHARSET "ISO-8859-1";
+html, body{
+	text-align: center;
+}
+.content{
+	width: 850px;
+	margin: 0 auto;
+}
+a{
+	color: black;
+	text-decoration: none;
+}
+a:visited{
+	color: black;
+}
+.hd{
+	border-bottom: 1px solid black;
+	text-align: center;
+}
+.title{
+	width: 850px;
+	height: 222px;
+	background:url(../images/header.jpg) top left no-repeat; 
+	margin: 0 auto;
+}
+.title p{
+	color: white;
+	padding: 80px 90px;
+}
+.nav{
+	margin: 0;
+	padding: 0;
+}
+.nav li{
+	list-style-type: none;
+	display: inline;
+}
+
+.nav:before, .nav:after, .nav li:before, .nav li:after{
+	content:" | ";
+}
+#gallery{
+	text-align: center;
+}
+.gallery{
+	margin: 10px;
+	padding: 0;
+	display: inline-block;
+	width: 555px;
+}
+.gallery li{
+	list-style-type: none;
+	display: inline-block;
+	width: 80px;
+	margin: 10px;
+	padding: 0;
+}
+.gallery li a img{
+	border: 1px solid black;
+}
