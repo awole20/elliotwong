@@ -22,13 +22,22 @@ a:visited{
 	height: 222px;
 	background:url(../images/header.jpg) top left no-repeat; 
 	margin: 0 auto;
+	
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	
+	-moz-box-shadow: inset 0 0 20px white;
+   -webkit-box-shadow: inset 0 0 20px white;
+   box-shadow: inset 0 0 20px white;
 }
 .title p{
 	color: white;
-	padding: 80px 90px;
+	padding-top: 5em;
+	padding-left: 28em;
 }
 .nav{
-	margin: 0;
+	text-align: right;
+	margin: 1em 5em;
 	padding: 0;
 }
 .nav li{
@@ -56,5 +65,8 @@ a:visited{
 	padding: 0;
 }
 .gallery li a img{
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
 	border: 1px solid black;
 }
