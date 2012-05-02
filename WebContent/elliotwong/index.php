@@ -64,7 +64,7 @@ require('./blog/wp-blog-header.php');
 			<label class="newsitem"><?php the_date();?></label>
 			<p>
 			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a><br />
-			<?php the_excerpt(); ?> <br />
+			<?php the_content(); ?> <br />
 			</p>
 			<?php endwhile;?>
 		</div>
