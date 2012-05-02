@@ -1,3 +1,8 @@
+<?php 
+/* Short and sweet */
+define('WP_USE_THEMES', false);
+require('./blog/wp-blog-header.php');
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -54,6 +59,14 @@
 			</p>
 		</div>
 		<div id="news" style="display: none;">
+			<?php query_posts('showposts=10'); ?>
+			<?php while (have_posts()) : the_post(); ?>
+			<label class="newsitem"><?php the_date();?></label>
+			<p>
+			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a><br />
+			<?php the_excerpt(); ?> <br />
+			</p>
+			<?php endwhile;?>
 			<label class="newsitem">Apr 15, 2012</label>
 			<p>I have donated a piece to the <a href="http://sfaws.org/">San Francisco Asian Women's Shelter</a>, which will be auctioned off at their 24th Annual Gala on May 3, 2012.</p>
 			<label class="newsitem">Mar 9, 2012</label>
