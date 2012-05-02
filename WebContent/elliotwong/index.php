@@ -67,12 +67,6 @@ require('./blog/wp-blog-header.php');
 			<?php the_excerpt(); ?> <br />
 			</p>
 			<?php endwhile;?>
-			<label class="newsitem">Apr 15, 2012</label>
-			<p>I have donated a piece to the <a href="http://sfaws.org/">San Francisco Asian Women's Shelter</a>, which will be auctioned off at their 24th Annual Gala on May 3, 2012.</p>
-			<label class="newsitem">Mar 9, 2012</label>
-			<p>I have been <a href="http://www.designsalononline.com/the-design-salon/a-new-star-is-born">featured</a> on the <a href="http://www.designsalononline.com/">Design Salon</a> blog.</p>
-			<label class="newsitem">Feb 15, 2012</label>
-			<p>I am exhibiting at Arterra, in the SOMA district of San Francisco March 1st to 29th.</p>
 		</div>
 	</div>
 	<div class="ft">
