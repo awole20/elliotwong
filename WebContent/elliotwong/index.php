@@ -1,8 +1,3 @@
-<?php 
-/* Short and sweet */
-define('WP_USE_THEMES', false);
-require('./blog/wp-blog-header.php');
-?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -32,18 +27,22 @@ require('./blog/wp-blog-header.php');
 	<div class="bd">
 		<div id="gallery">
 			<ul class ="gallery">
-				<li><a href="gallery/pic_0001.jpg" rel="lightbox[gallery]" title="Desert From Above <span class=&quot;sold&quot;>(Sold)</span><br/>36x48"><img src="gallery/pic_0001_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0002.jpg" rel="lightbox[gallery]" title="Mountains in Mist <br/>30x40"><img src="gallery/pic_0002_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0003.jpg" rel="lightbox[gallery]" title="Sunset at El Cap <br/>24x24"><img src="gallery/pic_0003_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0004.jpg" rel="lightbox[gallery]" title="Plume <br/>36x24"><img src="gallery/pic_0004_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0005.jpg" rel="lightbox[gallery]" title="Forest at Dawn <span class=&quot;sold&quot;>(Sold)</span><br/>36x48"><img src="gallery/pic_0005_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0006.jpg" rel="lightbox[gallery]" title="The Spire, Eagle Nebula <br/>40x30"><img src="gallery/pic_0006_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0007.jpg" rel="lightbox[gallery]" title="Sunset on Fields <br/>36x48"><img src="gallery/pic_0007_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0008.jpg" rel="lightbox[gallery]" title="Swan Nebula <br/>24x30"><img src="gallery/pic_0008_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0009.jpg" rel="lightbox[gallery]" title="Alaskan Bay <br/>36x48"><img src="gallery/pic_0009_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0010.jpg" rel="lightbox[gallery]" title="Pillars of Creation, Eagle Nebula <br/>48x36"><img src="gallery/pic_0010_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0011.jpg" rel="lightbox[gallery]" title="Reflection Nebula <br/>28x30"><img src="gallery/pic_0011_thumb.jpg"></img></a></li>
-				<li><a href="gallery/pic_0012.jpg" rel="lightbox[gallery]" title="Boise River <br/>46x60"><img src="gallery/pic_0012_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0001.jpg" rel="lightbox[gallery]" title="Desert From Above (SOLD) 36x48"><img src="gallery/pic_0001_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0002.jpg" rel="lightbox[gallery]" title="Mountains in Mist 30x40"><img src="gallery/pic_0002_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0003.jpg" rel="lightbox[gallery]" title="Sunset at El Cap 24x24"><img src="gallery/pic_0003_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0004.jpg" rel="lightbox[gallery]" title="Plume 36x24"><img src="gallery/pic_0004_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0005.jpg" rel="lightbox[gallery]" title="Forest at Dawn (SOLD) 36x48"><img src="gallery/pic_0005_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0006.jpg" rel="lightbox[gallery]" title="The Spire, Eagle Nebula 40x30"><img src="gallery/pic_0006_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0007.jpg" rel="lightbox[gallery]" title="Sunset on Fields 36x48"><img src="gallery/pic_0007_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0008.jpg" rel="lightbox[gallery]" title="Swan Nebula 24x30"><img src="gallery/pic_0008_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0009.jpg" rel="lightbox[gallery]" title="Alaskan Bay 36x48"><img src="gallery/pic_0009_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0010.jpg" rel="lightbox[gallery]" title="Pillars of Creation, Eagle Nebula 48x36"><img src="gallery/pic_0010_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0011.jpg" rel="lightbox[gallery]" title="Reflection Nebula 28x30"><img src="gallery/pic_0011_thumb.jpg"></img></a></li>
+				<li><a href="gallery/pic_0012.jpg" rel="lightbox[gallery]" title="Boise River 46x60"><img src="gallery/pic_0012_thumb.jpg"></img></a></li>
+				
+				<li><a href="gallery/P1000640.jpg" rel="lightbox[gallery]" title="Pic640"><img src="gallery/P1000640_thumb.jpg"></img></a></li>
+				<li><a href="gallery/P1000642.jpg" rel="lightbox[gallery]" title="Pic642"><img src="gallery/P1000642_thumb.jpg"></img></a></li>
+				<li><a href="gallery/P1000644.jpg" rel="lightbox[gallery]" title="Pic644"><img src="gallery/P1000644_thumb.jpg"></img></a></li>
 			</ul>
 		</div>
 		<div id="about" style="display: none;">
@@ -59,14 +58,6 @@ require('./blog/wp-blog-header.php');
 			</p>
 		</div>
 		<div id="news" style="display: none;">
-			<?php query_posts('showposts=10'); ?>
-			<?php while (have_posts()) : the_post(); ?>
-			<label class="newsitem"><?php the_date();?></label>
-			<p>
-			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a><br />
-			<?php the_content(); ?> <br />
-			</p>
-			<?php endwhile;?>
 		</div>
 	</div>
 	<div class="ft">
