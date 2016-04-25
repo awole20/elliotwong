@@ -27,15 +27,6 @@
 
 (def match-route (partial bidi/match-route app-routes))
 
-(defn component-links [gallery-link about-link contact-link]
-  [:ul {:id "nav" :class "nav"}
-    [:li
-     [:a {:href gallery-link} "Home"]]
-    [:li
-     [:a {:href about-link} "About"]]
-   [:li
-     [:a {:href contact-link} "Contact"]]])
-
 (defn component-not-found []
   [:div
    [:h1 "Not Found"]
@@ -60,15 +51,11 @@
        [:li [:a {:href (:gallery-link @app-state)} "Gallery"]]
        [:li [:a {:href (:about-link @app-state)} "About"]]
        [:li [:a {:href (:contact-link @app-state)} "Contact"]]]]]]
-   [:div {:class "content"}
-    [component-links
-     (:gallery-link @app-state)
-     (:about-link @app-state)
-     (:contact-link @app-state)]
-    [:div {:class "main"}
-     [(:view @app-state)]]]
-   [:div {:class "footer"}
-    [:p {:dangerouslySetInnerHTML {:__html (str "&copy; " (.getFullYear (js/Date.)) " Elliot Wong")}}]]])
+   [:div {:class "main"}
+    [(:view @app-state)]]
+   [:div {:class "footer navbar navbar-default navbar-fixed-bottom"}
+    [:div {:class "container"}
+     [:p {:class "center-block navbar-text" :dangerouslySetInnerHTML {:__html (str "&copy; " (.getFullYear (js/Date.)) " Elliot Wong")}}]]]])
 
 (defn render-app []
   (reagent/render-component [component-main]
