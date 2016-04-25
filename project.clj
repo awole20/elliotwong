@@ -12,7 +12,9 @@
                  [ring.middleware.logger "0.5.0"]
                  [compojure "1.5.0"]
                  [environ "1.0.2"]
-                 [reagent "0.5.1"]]
+                 [reagent "0.5.1"]
+                 [bidi "2.0.3"]
+                 [kibu/pushy "0.3.6"]]
 
   :plugins [[lein-cljsbuild "1.1.1"]
             [lein-environ "1.0.1"]]
