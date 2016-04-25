@@ -2,6 +2,7 @@
   (:require [reagent.core :as reagent :refer [atom]]
             [bidi.bidi :as bidi]
             [pushy.core :as pushy]
+            [elliotwong-v2.splash :as splash]
             [elliotwong-v2.gallery :as gallery]
             [elliotwong-v2.about :as about]
             [elliotwong-v2.contact :as contact]))
@@ -15,12 +16,14 @@
   (pushy/stop! old-history))
 
 (def app-routes [
-                 "/" {(bidi/alts "" "index.html") :gallery
+                 "/" {(bidi/alts "" "index.html") :home
+                      "gallery" :gallery
                       "about" :about
                       "contact" :contact
                       true :not-found}])
 
 (def app-state (atom {:text "Hello Chestnut!"
+                      :home-link (bidi/path-for app-routes :home)
                       :gallery-link (bidi/path-for app-routes :gallery)
                       :about-link (bidi/path-for app-routes :about)
                       :contact-link (bidi/path-for app-routes :contact)}))
@@ -32,11 +35,15 @@
    [:h1 "Not Found"]
    [:div "Page not found"]])
 
-(defn component-main []
-  [:div {:class "container-fluid"}
-   [:nav {:class "navbar navbar-default navbar-fixed-top"}
+(defn component-splash []
+  [:div {:class ""}
+   [splash/component-splash (:gallery-link @app-state)]])
+
+(defn component-content []
+  [:div {:class ""}
+   [:nav {:class "navbar navbar-default"}
     [:div {:class "container-fluid"}
-     [:div {:class "navbar-header"}
+     [:div {:class "navbar-header" :name "nav"}
       [:button {:type "button"
                 :class "navbar-toggle collapsed"
                 :data-toggle "collapse"
@@ -45,17 +52,17 @@
        [:span {:class "icon-bar"}]
        [:span {:class "icon-bar"}]
        [:span {:class "icon-bar"}]]
-      [:a {:class "navbar-brand" :href "/"} "Elliot Wong"]]
+      [:a {:class "navbar-brand" :href (:home-link @app-state)} "Elliot Wong"]]
      [:div {:class "collapse navbar-collapse" :id "navigate"}
       [:ul {:class "nav navbar-nav navbar-right" :id "navigate"}
        [:li [:a {:href (:gallery-link @app-state)} "Gallery"]]
        [:li [:a {:href (:about-link @app-state)} "About"]]
        [:li [:a {:href (:contact-link @app-state)} "Contact"]]]]]]
    [:div {:class "main"}
-    [(:view @app-state)]]
-   [:div {:class "footer navbar navbar-default navbar-fixed-bottom"}
-    [:div {:class "container"}
-     [:p {:class "center-block navbar-text" :dangerouslySetInnerHTML {:__html (str "&copy; " (.getFullYear (js/Date.)) " Elliot Wong")}}]]]])
+    [(:view @app-state)]]])
+
+(defn component-main []
+  [(:page @app-state)])
 
 (defn render-app []
   (reagent/render-component [component-main]
@@ -63,13 +70,20 @@
 
 (defmulti dispatch (fn [{:keys [handler] :as match}] handler))
 
+(defmethod dispatch :home [_]
+  (swap! app-state assoc :page component-splash)
+  (swap! app-state assoc :view gallery/component-gallery))
+
 (defmethod dispatch :gallery [_]
+  (swap! app-state assoc :page component-content)
   (swap! app-state assoc :view gallery/component-gallery))
 
 (defmethod dispatch :about [_]
+  (swap! app-state assoc :page component-content)
   (swap! app-state assoc :view about/component-about))
 
 (defmethod dispatch :contact [_]
+  (swap! app-state assoc :page component-content)
   (swap! app-state assoc :view contact/component-contact))
 
 (defmethod dispatch :not-found [_]
